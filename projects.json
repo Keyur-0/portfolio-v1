@@ -1,0 +1,21 @@
+[
+    {
+        "title": "DayFlow",
+        "description": "Android daily task tracker app built in Java.",
+        "image": "assets/dayflow.jpeg",
+        "link": "https://github.com/Keyur-0/dayflow"
+    },
+    {
+        "title": "SIGN2SOUND",
+        "description": "Multimodal Speech-to-Text/Sign-to-Text accessibility system. IEEE hackathon Top 7 nationally.",
+        "image": "assets/sign2sound.png",
+        "link": "https://github.com/Keyur-0/sign2sound"
+    },
+    {
+        "title": "PulseFit",
+        "description": "AI-powered diet planner web app using React, Node.js, and the Gemini API.",
+        "image": "assets/pulsefit.jpeg",
+        "link": "https://github.com/Keyur-0/AI-diet-planner"
+    }
+    
+]
