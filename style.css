@@ -200,7 +200,103 @@ span{
 .project-card:nth-child(even){
     align-self: flex-end;
 }
+.skills{
+    background-color: #0f0f0f;
+    border-top: 1px solid rgba(167, 139, 250, 0.4);
+    /* border-radius: 3rem 3rem 0 0; */
+    padding: 3rem 2rem;
+    margin-top: 6rem;
+    min-height: auto;
+}
 
+.skills-title{
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.skills-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* centers every row, including the short last one */
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.skill-item{
+    width: 20rem;              /* fixed box size, replaces the minmax(20rem, 1fr) */
+    justify-content: center;   /* centers the icon + text inside each box */
+}
+
+.skill-item{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background-color: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    transition: 0.3s ease;
+}
+
+.skill-item i{
+    font-size: 3.5rem;
+    color: #A78BFA;
+}
+
+.skill-item:hover{
+    border-color: #A78BFA;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(167, 139, 250, 0.4);
+}
+.skill-item span{
+    color: white;
+}
+.tools{
+    min-height: auto;
+    padding: 6rem 2rem;
+    background-color: black;
+}
+
+.tools-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.tool-item{
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: 2px solid #A78BFA;
+    border-radius: 4rem;          /* pill shape, same as your .btn */
+    font-size: 1.8rem;
+    transition: 0.3s ease;
+}
+
+.tool-item i{
+    font-size: 3rem;
+    color: #A78BFA;
+    transition: 0.3s ease;
+}
+
+.tool-item span{
+    color: white;
+}
+
+.tool-item:hover{
+    background-color: #A78BFA;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #A78BFA;
+}
+
+.tool-item:hover i,
+.tool-item:hover span{
+    color: black;                 /* same invert as your Hire me button */
+}
 .social-icons a{
     display: inline-flex;
     justify-content: center;
