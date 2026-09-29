@@ -283,6 +283,18 @@ span{
     transition: 0.3s ease;
 }
 
+.tool-item img{
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.tool-item img[src*="antigravity"] {
+    filter: brightness(0) saturate(100%)
+            invert(66%) sepia(44%) saturate(1352%)
+            hue-rotate(213deg) brightness(101%) contrast(97%);
+}
+
 .tool-item span{
     color: white;
 }
