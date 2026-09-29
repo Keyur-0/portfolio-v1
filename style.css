@@ -136,20 +136,9 @@ span{
     position: relative;
     width: 32vw;
     border-radius: 50%;
-    box-shadow: 0 0 25px solid #A78BFA;
-    cursor: pointer;
+    box-shadow: 0 0 25px #A78BFA;
+    cursor: pointer;  /* later will add an interaction or animation */
     transition: 0.2s linear;
-}
-
-.home-img img:hover{
-    font-size: 1.8rem;
-    font-weight: 500;
-}
-
-.heading{
-    font-size: 5rem;
-    text-align: center;
-    margin-bottom: 4rem;
 }
 
 .projects{
@@ -160,7 +149,7 @@ span{
 .projects-container{
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* container itself stays full width */
+    align-items: stretch;
     gap: 10rem;
     padding: 2rem 0;
 }
@@ -171,9 +160,7 @@ span{
     border: 1px solid #A78BFA;
     border-radius: 1rem;
     overflow: hidden;
-    text-decoration: none;
     color: inherit;
-    cursor: pointer;
 }
 
 .project-card img{
@@ -193,6 +180,41 @@ span{
     padding: 0 1rem 1rem;
 }
 
+.project-buttons{
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem 1.5rem;
+    flex-wrap: wrap;
+}
+
+.project-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid #A78BFA;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: #A78BFA;
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+
+}
+
+.project-btn i{
+    font-size: 1.5rem;
+}
+
+.project-btn:hover{
+    background-color: #A78BFA;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.5);
+
+}
+
 .project-card:nth-child(odd){
     align-self: flex-start;
 }
@@ -203,7 +225,6 @@ span{
 .skills{
     background-color: #0f0f0f;
     border-top: 1px solid rgba(167, 139, 250, 0.4);
-    /* border-radius: 3rem 3rem 0 0; */
     padding: 3rem 2rem;
     margin-top: 6rem;
     min-height: auto;
@@ -218,19 +239,16 @@ span{
 .skills-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;   /* centers every row, including the short last one */
+    justify-content: center;  
     gap: 2rem;
     margin: 0 auto;
 }
 
 .skill-item{
-    width: 20rem;              /* fixed box size, replaces the minmax(20rem, 1fr) */
-    justify-content: center;   /* centers the icon + text inside each box */
-}
-
-.skill-item{
+    width: 20rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1.5rem;
     padding: 1.5rem 2rem;
     background-color: #161616;
@@ -272,7 +290,7 @@ span{
     gap: 1.2rem;
     padding: 1rem 2.5rem;
     border: 2px solid #A78BFA;
-    border-radius: 4rem;          /* pill shape, same as your .btn */
+    border-radius: 4rem;          
     font-size: 1.8rem;
     transition: 0.3s ease;
 }
@@ -307,7 +325,7 @@ span{
 
 .tool-item:hover i,
 .tool-item:hover span{
-    color: black;                 /* same invert as your Hire me button */
+    color: black;                 
 }
 .social-icons a{
     display: inline-flex;
