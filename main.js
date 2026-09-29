@@ -19,5 +19,24 @@ async function loadProjects() {
         container.appendChild(card);
     });
 }
+const form = document.querySelector('.contact-form');
+
+form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if(response.ok){
+        form.innerHTML = '<p style="font-size:1.8rem;">Thanks! Your message has been sent.</p>';
+    } else {
+        alert('Oops! Something went wrong. Please try again.');
+    }
+});
 
 loadProjects();
