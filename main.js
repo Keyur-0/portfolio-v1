@@ -68,4 +68,19 @@ form.addEventListener('submit', async function(e){
     }
 });
 
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.sidebar a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+        if (scrollY >= section.offsetTop - 200)
+            current = section.id;
+    });
+
+    navLinks.forEach(link =>
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`)
+    );
+});
 loadProjects();

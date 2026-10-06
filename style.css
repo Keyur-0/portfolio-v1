@@ -141,39 +141,93 @@ body{
     transform: translateY(-3px);
 }
 
-@media(max-width:995px){
-    nav{
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid #D8D8D8;
-        border-bottom: 3px solid #D8D8D8;
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: #1A1A1A;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
-    }
-
-    nav.active{
-        display: block;
-    }
-
-    nav a{
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    nav a:hover,
-    nav a.active{
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-bottom: 0.5rem solid #ffffff;
-    }
+/* Mobile menu */
+#menu-toggle {
+    display: none;
 }
 
+.menu-button {
+    display: none;
+}
+@media (max-width: 768px) {
+
+    body {
+        padding-left: 0;
+        overflow-x: hidden;
+    }
+
+    .menu-button {
+        display: flex;
+        position: fixed;
+        top: 1.5rem;
+        left: 1.5rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+
+        background: #121212;
+        color: #D8D8D8;
+        border: 1px solid #D8D8D8;
+        border-radius: 50%;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .sidebar {
+        width: 28rem;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1500;
+    }
+
+    #menu-toggle:checked ~ .sidebar {
+        transform: translateX(0);
+    }
+
+    body:has(#menu-toggle:checked) {
+        overflow-x: hidden;
+    }
+
+    .home {
+        flex-direction: column;
+        gap: 4rem;
+        margin: 0;
+        padding: 8rem 5% 5rem;
+    }
+
+    .home-img img {
+        width: min(70vw, 35rem);
+        max-width: 100%;
+        margin-top: 2rem;
+    }
+
+    .projects {
+        padding: 6rem 5%;
+    }
+
+    .projects-container {
+        width: 100%;
+        gap: 5rem;
+    }
+
+    .project-card,
+    .project-card:nth-child(odd),
+    .project-card:nth-child(even) {
+        width: 100%;
+        max-width: 75rem;
+        align-self: center;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+    }
+}
 section{
     min-height: 100vh;
     padding: 5rem 9% 5rem;
@@ -196,6 +250,7 @@ section{
 .home-content h3{
     font-size: 4rem;
     margin-bottom: 1rem;
+    white-space: nowrap;
     font-weight: 700;
 }
 
