@@ -495,7 +495,8 @@ section{
 }
 @media (max-width: 768px) {
 
-    html,body {
+    html,
+    body {
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
@@ -515,7 +516,6 @@ section{
         align-items: center;
         justify-content: center;
         z-index: 2000;
-
         background: #121212;
         color: #D8D8D8;
         border: 1px solid #D8D8D8;
@@ -540,17 +540,24 @@ section{
         overflow-x: hidden;
     }
 
+    /* HERO */
+
     .home {
+        width: 100%;
+        max-width: 100%;
         flex-direction: column;
         gap: 4rem;
         margin: 0;
         padding: 8rem 5% 5rem;
+        overflow: hidden;
     }
 
     .home-img {
         width: 100%;
+        max-width: 100%;
         display: flex;
         justify-content: center;
+        flex-shrink: 0;
     }
 
     .home-img img {
@@ -562,24 +569,53 @@ section{
 
     .home-content {
         width: 100%;
+        max-width: 100%;
         min-width: 0;
+        text-align: center;
+        overflow: hidden;
     }
 
     .home .home-content h1 {
+        width: 100%;
+        max-width: 100%;
         font-size: clamp(4rem, 12vw, 6rem);
         line-height: 1.2;
-        max-width: 100%;
     }
 
     .home-content h3 {
+        width: 100%;
+        max-width: 100%;
         font-size: clamp(2.2rem, 7vw, 4rem);
         white-space: normal;
-        max-width: 100%;
     }
 
     .home-content p {
+        width: 100%;
         max-width: 100%;
     }
+
+    /* HERO SOCIALS */
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .social-icons a {
+        margin: 3rem 0.75rem;
+    }
+
+    /* HIRE ME */
+
+    .home-content .btn {
+        display: block;
+        width: max-content;
+        margin: 0 auto;
+    }
+
+    /* PROJECTS */
 
     .projects {
         padding: 6rem 5%;
@@ -597,6 +633,7 @@ section{
         max-width: 75rem;
         align-self: center;
     }
+
     .project-card {
         min-width: 0;
     }
@@ -606,64 +643,5 @@ section{
         height: auto;
         aspect-ratio: 16 / 9;
         object-fit: contain;
-    }
-}
-@media (max-width: 768px) {
-
-    /* Prevent the hero from becoming wider than the phone */
-    .home {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .home-img {
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .home-img img {
-        width: min(75vw, 35rem);
-        max-width: 100%;
-        height: auto;
-    }
-
-    .home-content {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .home .home-content h1,
-    .home-content h3,
-    .home-content p {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* Center social icons */
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .social-icons a {
-        margin: 3rem 0.75rem;
-    }
-
-    /* Center Hire Me */
-    .home-content .btn {
-        display: block;
-        width: max-content;
-        margin: 0 auto;
     }
 }
