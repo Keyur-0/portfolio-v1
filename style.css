@@ -458,21 +458,21 @@ section{
 .typing-text span {
     position: relative;
     display: inline-block;
+    color: #D8D8D8;
 }
 
 .typing-text span::before {
     content: "Java Developer";
     color: #D8D8D8;
-    animation: words 8s infinite;
 }
 
 .typing-text span::after {
     content: "";
     position: absolute;
-    right: -8px;
     top: 0;
-    height: 100%;
+    right: -8px;
     width: 3px;
+    height: 100%;
     background-color: #D8D8D8;
     animation: cursor 0.6s infinite;
 }
@@ -483,7 +483,7 @@ section{
     }
 }
 
-@keyframes words {
+/* @keyframes words {
     0%, 33% {
         content: "Java Developer";
     }
@@ -495,7 +495,7 @@ section{
     67%, 100% {
         content: "Web Developer";
     }
-}
+} */
 
 @media (max-width: 768px) {
 
