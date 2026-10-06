@@ -495,9 +495,14 @@ section{
 }
 @media (max-width: 768px) {
 
+    html,body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     body {
         padding-left: 0;
-        overflow-x: hidden;
     }
 
     .menu-button {
@@ -542,10 +547,38 @@ section{
         padding: 8rem 5% 5rem;
     }
 
+    .home-img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     .home-img img {
-        width: min(70vw, 35rem);
+        width: min(75vw, 35rem);
         max-width: 100%;
+        height: auto;
         margin-top: 2rem;
+    }
+
+    .home-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .home .home-content h1 {
+        font-size: clamp(4rem, 12vw, 6rem);
+        line-height: 1.2;
+        max-width: 100%;
+    }
+
+    .home-content h3 {
+        font-size: clamp(2.2rem, 7vw, 4rem);
+        white-space: normal;
+        max-width: 100%;
+    }
+
+    .home-content p {
+        max-width: 100%;
     }
 
     .projects {
@@ -563,6 +596,9 @@ section{
         width: 100%;
         max-width: 75rem;
         align-self: center;
+    }
+    .project-card {
+        min-width: 0;
     }
 
     .project-card img {
