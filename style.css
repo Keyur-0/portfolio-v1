@@ -451,7 +451,8 @@ section{
 .typing-text{
     font-size: 34px;
     font-weight: 600;
-    min-width: 280px;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .typing-text span{
