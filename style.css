@@ -141,7 +141,6 @@ body{
     transform: translateY(-3px);
 }
 
-/* Mobile menu */
 #menu-toggle {
     display: none;
 }
@@ -188,447 +187,156 @@ section{
     width: 32vw;
     border-radius: 50%;
     box-shadow: 0 0 25px #ffffff;
-    cursor: pointer;  /* later will add an interaction or animation */
+    cursor: pointer;
     transition: 0.2s linear;
 }
 
-.projects{
-    border-top: 1px solid rgba(216, 216, 216, 0.3);
-    padding-top: 6rem;
+.projects {
+    min-height: auto;
+    padding: 6rem 5%;
+    border-top: 1px solid #2a2a2a;
 }
 
-.projects-container{
+.projects .skills-title {
+    margin-bottom: 4rem;
+}
+
+.projects-container {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 10rem;
-    padding: 2rem 0;
+    gap: 2rem;
+    max-width: 210rem;
+    margin: 0 auto;
 }
-
-/* .project-card{
-    width: 750px;
-    background-color: #1A1A1A;
-    border: 1px solid #D8D8D8;
-    border-radius: 1rem;
-    overflow: hidden;
-    color: inherit;
-} */
-/* ================================
-   Project Cards
-================================ */
 
 .project-card {
-    width: min(520px, 90%);
-    max-width: 100%;
-    background-color: #1A1A1A;
-    border: 1px solid #D8D8D8;
+    width: 100%;
+    background: #181818;
+    border: 1px solid #303030;
     border-radius: 1rem;
-    overflow: visible;
-    color: inherit;
-
-    position: relative;
-    transform-origin: center center;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-
-    transition:
-        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.7s ease,
-        border-color 0.7s ease;
+    transition: border-color 0.3s ease,
+                transform 0.3s ease;
 }
 
-/* Alternating 3D tilt and floating animation */
-
-.project-card--odd {
-    align-self: flex-start;
-    transform: perspective(1000px) rotateX(14deg) rotateY(-12deg);
-    animation: floating-left 6s ease-in-out infinite;
+.project-card:hover {
+    border-color: #555;
+    transform: translateY(-3px);
 }
 
-.project-card--even {
-    align-self: flex-end;
-    transform: perspective(1000px) rotateX(14deg) rotateY(12deg);
-    animation: floating-right 8s ease-in-out infinite;
+.project-content {
+    padding: 2.8rem 3rem;
 }
 
-.project-card--odd:nth-child(3n) {
-    animation-duration: 7s;
-    animation-delay: -2s;
+.project-content h3 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #f5f5f5;
+    letter-spacing: -0.04rem;
+    margin-bottom: 1rem;
 }
 
-.project-card--even:nth-child(4n) {
-    animation-duration: 9s;
-    animation-delay: -4s;
+.project-content > p {
+    font-size: 2.05rem;
+    line-height: 1.8;
+    font-weight: 600;
+    color: #aaa;
+    margin-bottom: 2rem;
 }
 
-/* ================================
-   Project Images
-================================ */
+.project-detailed-description {
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: #c0c0c0;
 
-.project-card img {
-    display: block;
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    background-color: #000;
-}
-
-.project-image-container {
-    position: relative;
-    overflow: visible;
-}
-
-.project-image-container > img {
-    border-radius: 0.9rem 0.9rem 0 0;
-}
-
-/* ================================
-   Project Description Panel
-================================ */
-
-.project-description-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 1.2rem;
     overflow-y: auto;
-    z-index: 2;
+    max-height: 13rem;
 
-    color: #D8D8D8;
-    background: rgba(26, 26, 26, 0.65);
-    backdrop-filter: blur(6px);
-
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-
-    transition:
-        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-        background-color 0.3s ease,
-        backdrop-filter 0.3s ease;
+    padding: 0 1.2rem 0 0;
+    margin-bottom: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: #555 #222;
 }
 
-.project-description-panel h4 {
-    margin-top: 0;
+.project-detailed-description::-webkit-scrollbar {
+    width: 5px;
 }
 
-/* ================================
-   Expanded Project Card
-================================ */
-
-.project-expanded {
-    position: fixed;
-    z-index: 1001;
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 95vh;
-    background: #1A1A1A;
-
-    animation: none !important;
-    animation-play-state: paused !important;
-    translate: none !important;
-
-    transition:
-        top 0.4s ease,
-        left 0.4s ease,
-        width 0.4s ease,
-        transform 0.4s ease;
+.project-detailed-description::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 5px;
 }
 
-/* Override the original card's alignment and tilt classes */
-.project-expanded,
-.project-expanded.project-card--odd,
-.project-expanded.project-card--even {
-    align-self: auto;
+.project-detailed-description::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
 }
 
-.project-expanded.expanded {
-    display: block;
-    width: min(950px, 90vw) !important;
-    max-width: 90vw;
-    height: auto !important;
-    max-height: 85vh;
-
-    transform: translate(-50%, -50%) scale(1) !important;
+.project-detailed-description::-webkit-scrollbar-thumb:hover {
+    background: #888;
 }
 
-/* ================================
-   Expanded Description Layout
-================================ */
-
-/* Create separate columns for the description and image */
-.project-card.project-expanded.expanded .project-image-container {
-    display: grid;
-    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-    align-items: stretch;
-}
-
-/* Keep the image in the right column */
-.project-card.project-expanded.expanded .project-image-container > img {
-    grid-column: 2;
-    grid-row: 1;
-    width: 100%;
-    height: 380px;
-    object-fit: contain;
-}
-
-/* Keep the description inside the left column */
-.project-card.project-expanded.expanded .project-description-panel {
-    position: relative;
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-
-    color: #D8D8D8;
-    background: #1A1A1A;
-    backdrop-filter: none;
-}
-
-/* ================================
-   Expanded Image, Title and Text
-================================ */
-
-.project-expanded img {
-    max-height: none;
-}
-
-.project-expanded h3 {
-    font-size: 2.4rem;
-}
-
-.project-expanded p {
-    font-size: 1.6rem;
-}
-
-/* ================================
-   Preserve Layout During Expansion
-================================ */
-
-.project-placeholder {
-    pointer-events: none;
-}
-
-/* ================================
-   Close Button
-================================ */
-
-.project-close {
-    position: fixed;
-    top: 20px;
-    right: 25px;
-    z-index: 1002;
-
-    border: none;
-    background: transparent;
-    color: #D8D8D8;
-    font-size: 2.5rem;
-    cursor: pointer;
-}
-/* ================================
-   Floating Animations
-================================ */
-
-@keyframes floating-left {
-    0%, 100% {
-        translate: 0 0;
-    }
-
-    25% {
-        translate: 8px -12px;
-    }
-
-    50% {
-        translate: -5px -18px;
-    }
-
-    75% {
-        translate: -10px -6px;
-    }
-}
-
-@keyframes floating-right {
-    0%, 100% {
-        translate: 0 0;
-    }
-
-    25% {
-        translate: -9px -7px;
-    }
-
-    50% {
-        translate: 6px -15px;
-    }
-
-    75% {
-        translate: 10px -3px;
-    }
-}
-
-/* ================================
-   Project Titles and Descriptions
-================================ */
-
-.project-card h3 {
-    font-size: 2.4rem;
-    padding: 1rem 1rem 0.5rem;
-}
-
-.project-card p {
-    font-size: 1.6rem;
-    padding: 0 1rem 1rem;
-}
-
-/* ================================
-   Project Buttons
-================================ */
-
-.project-buttons {
+.project-links {
     display: flex;
-    gap: 1rem;
-    padding: 0 1rem 1.5rem;
     flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
 }
 
-.project-btn {
+.project-links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
 
-    padding: 0.8rem 1.6rem;
-    border: 1px solid #D8D8D8;
-    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid #444;
+    border-radius: 0.6rem;
 
-    background-color: transparent;
-    color: #D8D8D8;
+    color: #d8d8d8;
     font-size: 1.4rem;
-    font-weight: 500;
     text-decoration: none;
 
-    transition: 0.3s ease;
+    transition: background-color 0.25s ease,color 0.25s ease,border-color 0.25s ease;
 }
 
-.project-btn i {
-    font-size: 1.5rem;
-}
-
-.project-btn:hover {
-    background-color: #fff;
+.project-links a:hover {
+    background: #d8d8d8;
     color: #121212;
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(216, 216, 216, 0.5);
+    border-color: #d8d8d8;
 }
-
-/* ================================
-   Overlay
-================================ */
-
-.project-overlay {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.75);
-    opacity: 0;
-    visibility: hidden;
-
-    z-index: 1000;
-    transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease;
-}
-
-.project-overlay.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* ================================
-   Tablet
-================================ */
 
 @media (max-width: 768px) {
-    .project-image-container > img {
-        height: 200px;
+    .projects {
+        padding: 4rem 5%;
     }
 
-    .project-description-panel {
-        width: 65%;
-        padding: 0.8rem;
-        font-size: 0.8rem;
+    .projects .skills-title {
+        margin-bottom: 2.5rem;
     }
 
-    .project-expanded img {
-        height: 260px;
-    }
-}
-
-/* ================================
-   Mobile
-================================ */
-
-@media (max-width: 600px) {
-    .project-card {
-        width: 92vw;
-        max-width: 100%;
+    .projects-container {
+        gap: 1.5rem;
     }
 
-    .project-card img {
-        height: 200px;
+    .project-content {
+        padding: 2rem;
     }
 
-    .project-expanded.expanded {
-        width: 92vw !important;
-        max-width: 92vw;
-        max-height: 80vh;
+    .project-content h3 {
+        font-size: 2.2rem;
     }
 
-    .project-expanded img {
-        height: 200px;
-        max-height: 30vh;
+    .project-content > p {
+        font-size: 1.45rem;
     }
 
-    .project-expanded h3 {
-        font-size: 1.8rem;
+    .project-detailed-description {
+        font-size: 1.35rem;
+        max-height: 12rem;
     }
 
-    .project-expanded p {
-        font-size: 1rem;
-    }
-
-    .project-description-panel {
-        width: 65%;
-        padding: 0.8rem;
-        font-size: 0.8rem;
-    }
-
-    .project-close {
-        top: 10px;
-        right: 12px;
-    }
-}
-
-/* ================================
-   Reduced Motion
-================================ */
-
-@media (prefers-reduced-motion: reduce) {
-    .project-card {
-        animation: none;
-        transition-duration: 0.01ms;
-    }
-
-    .project-overlay,
-    .project-expanded,
-    .project-description-panel {
-        transition-duration: 0.01ms;
+    .project-links a {
+        font-size: 1.3rem;
     }
 }
 
@@ -649,7 +357,7 @@ section{
 .skills-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;  
+    justify-content: center;
     gap: 2rem;
     margin: 0 auto;
 }
@@ -700,7 +408,7 @@ section{
     gap: 1.2rem;
     padding: 1rem 2.5rem;
     border: 2px solid #D8D8D8;
-    border-radius: 4rem;          
+    border-radius: 4rem;
     font-size: 1.8rem;
     transition: 0.3s ease;
 }
@@ -729,7 +437,7 @@ section{
 
 .tool-item:hover i,
 .tool-item:hover span{
-    color: #121212;                 
+    color: #121212;
 }
 .social-icons a{
     display: inline-flex;
@@ -902,8 +610,6 @@ section{
         overflow-x: hidden;
     }
 
-    /* HERO */
-
     .home {
         width: 100%;
         max-width: 100%;
@@ -956,8 +662,6 @@ section{
         max-width: 100%;
     }
 
-    /* HERO SOCIALS */
-
     .social-icons {
         display: flex;
         justify-content: center;
@@ -969,15 +673,11 @@ section{
         margin: 3rem 0.75rem;
     }
 
-    /* HIRE ME */
-
     .home-content .btn {
         display: block;
         width: max-content;
         margin: 0 auto;
     }
-
-    /* PROJECTS */
 
     .projects {
         padding: 6rem 5%;
@@ -988,13 +688,6 @@ section{
         gap: 5rem;
     }
 
-    .project-card,
-    .project-card:nth-child(odd),
-    .project-card:nth-child(even) {
-        width: 100%;
-        max-width: 75rem;
-        align-self: center;
-    }
 
     .project-card {
         min-width: 0;
